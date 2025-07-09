@@ -1,0 +1,80 @@
+/* Resete e configurações globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0A0A0A; /* Fundo escuro inspirado no Linear */
+    color: #EAEAEA; /* Cor de texto principal, um branco suave */
+    font-family: 'Inter', sans-serif; /* Fonte limpa e moderna */
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit; /* Links herdam a cor do elemento pai */
+    text-decoration: none;
+}
+
+/* Estilos do Cabeçalho */
+.axtron-header {
+    width: 100%;
+    padding: 20px 0;
+    border-bottom: 1px solid #222222; /* Linha sutil para separar o header do resto */
+    position: sticky;
+    top: 0;
+    background-color: rgba(10, 10, 10, 0.8); /* Fundo com leve transparência ao rolar */
+    backdrop-filter: blur(10px); /* Efeito de vidro fosco, muito moderno */
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Estilo do Logo */
+.logo a {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+/* Estilo da Navegação */
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px; /* Espaçamento entre os links */
+}
+
+.main-nav a {
+    color: #A1A1A1; /* Cinza sutil para os links, como no Linear */
+    font-size: 16px;
+    font-weight: 500;
+    transition: color 0.3s ease; /* Efeito suave ao passar o mouse */
+}
+
+.main-nav a:hover {
+    color: #FFFFFF; /* Link fica branco ao passar o mouse */
+}
+
+/* Estilo do Botão de Ação */
+.header-action .btn-login {
+    border: 1px solid #333333;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.header-action .btn-login:hover {
+    background-color: #FFFFFF;
+    color: #0A0A0A;
+    border-color: #FFFFFF;
+}
