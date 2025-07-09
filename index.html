@@ -1,51 +1,27 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Axtron - Ecossistema Digital</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
+    <title>Axtron OS v6.0</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <header class="axtron-header">
-        <div class="header-container">
-            <div class="logo">
-                <a href="#">AXTRON OS</a>
-            </div>
-
-            <nav class="main-nav" id="main-nav-links">
-                <ul>
-                    <li><a href="#">Academia</a></li>
-                    <li><a href="#">Assets</a></li>
-                    <li><a href="#">Comunidade</a></li>
-                    <li><a href="#">Ferramentas</a></li>
-                </ul>
-            </nav>
-
-            <div class="header-actions">
-                <a href="#" class="btn-login">Entrar</a>
-                <a href="#" class="cart-icon"><i class="fas fa-shopping-cart"></i></a>
-                
-                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Abrir menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
-            </div>
+    <header class="hero">
+        <div class="hero-3d" aria-hidden="true">
+            <canvas id="three-canvas"></canvas>
+        </div>
+        <div class="hero-content">
+            <h1 class="animate">Bem-vindo ao Axtron OS</h1>
+            <p class="animate">Acelerando o crescimento de negócios digitais</p>
+            <button class="cta-button" aria-label="Explore mais sobre o Axtron OS">Explore Mais</button>
         </div>
     </header>
-    <main style="height: 2000px; padding: 40px;">
-        <h1 style="font-size: 48px; text-align: center; margin-top: 100px;">Conteúdo Principal do Site</h1>
-    </main>
-
+    <button class="chatbot-button" aria-label="Chat com Axtron AI (Em Breve)">Chat com Axtron AI (Em Breve)</button>
+    <button class="dark-mode-toggle" aria-label="Alternar Modo Escuro">🌙</button>
     <script src="script.js"></script>
 </body>
 </html>
