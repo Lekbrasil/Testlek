@@ -1,31 +1,63 @@
-// Espera o conteúdo da página carregar para executar o script
-document.addEventListener('DOMContentLoaded', function() {
+// Dark Mode Toggle
+const darkModeToggle = document.querySelector('.dark-mode-toggle');
+darkModeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+});
 
-    // --- LÓGICA PARA O MENU MOBILE ---
-    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-    const mainNavLinks = document.getElementById('main-nav-links');
+// Three.js 3D Element
+const canvas = document.getElementById('three-canvas');
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+renderer.setSize(window.innerWidth, window.innerHeight);
 
-    // Adiciona um "ouvinte de evento" de clique no botão do menu
-    mobileMenuToggle.addEventListener('click', () => {
-        // Adiciona/remove a classe 'active' para mostrar/esconder o menu
-        mainNavLinks.classList.toggle('active');
-        // Adiciona/remove a classe 'active' para animar o botão (hambúrguer para X)
-        mobileMenuToggle.classList.toggle('active');
-    });
+const geometry = new THREE.SphereGeometry(1, 32, 32);
+const material = new THREE.MeshBasicMaterial({ color: 0x8B5E3C });
+const sphere = new THREE.Mesh(geometry, material);
+scene.add(sphere);
 
-    // --- LÓGICA PARA O EFEITO DE SCROLL NO CABEÇALHO ---
-    const header = document.querySelector('.axtron-header');
+camera.position.z = 5;
 
-    // Adiciona um "ouvinte de evento" de rolagem na página
-    window.addEventListener('scroll', () => {
-        // Se a rolagem vertical for maior que 50 pixels...
-        if (window.scrollY > 50) {
-            // Adiciona a classe 'scrolled' para aplicar o efeito glassmorphism
-            header.classList.add('scrolled');
-        } else {
-            // Remove a classe se estiver no topo
-            header.classList.remove('scrolled');
-        }
-    });
+// Auto-rotate for mobile
+function animate() {
+    requestAnimationFrame(animate);
+    sphere.rotation.x += 0.01;
+    sphere.rotation.y += 0.01;
+    renderer.render(scene, camera);
+}
+animate();
 
+// Rotate based on mouse (desktop)
+let mouseX = 0, mouseY = 0;
+document.addEventListener('mousemove', (event) => {
+    mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+    mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+});
+
+function updateRotation() {
+    sphere.rotation.x = mouseY * Math.PI;
+    sphere.rotation.y = mouseX * Math.PI;
+    requestAnimationFrame(updateRotation);
+}
+updateRotation();
+
+// Handle window resize
+window.addEventListener('resize', () => {
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+});
+
+// GSAP Text Animation
+gsap.from('.animate', {
+    opacity: 0,
+    y: 50,
+    duration: 1,
+    stagger: 0.3
+});
+
+// Chatbot Placeholder
+const chatbotButton = document.querySelector('.chatbot-button');
+chatbotButton.addEventListener('click', () => {
+    alert('Chat com Axtron AI estará disponível em breve!');
 });
